@@ -27,12 +27,13 @@
 .cyber-content {
   font-size: 22px;
   line-height: 2.1;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.98);
   margin-bottom: 38px;
   outline: none;
   white-space: pre-line;
   user-select: text;
   min-height: 220px;
+  font-weight: 600;
 }
 
 .cyber-footer {
@@ -130,13 +131,13 @@
 .card-default .cyber-content {
   font-size: 20px;
   line-height: 2.1;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.98);
   margin-bottom: 38px;
   outline: none;
   white-space: pre-line;
   user-select: text;
   min-height: 220px;
-  font-weight: 400;
+  font-weight: 600;
   text-align: left;
 }
 
@@ -180,13 +181,32 @@
 /* 彩虹 */
 .card-rainbow {
   background: linear-gradient(90deg, #ff5e62 0%, #ff9966 25%, #f9d423 50%, #a8ff78 75%, #43cea2 100%);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px 0 rgba(58, 141, 222, 0.18);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+  box-sizing: border-box;
+  position: relative;
 }
+
 /* 霓虹 */
 .card-neon {
   background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px 0 rgba(58, 141, 222, 0.18);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+  box-sizing: border-box;
   position: relative;
   overflow: visible;
 }
+
 .card-neon::before {
   content: '';
   position: absolute;
@@ -200,70 +220,120 @@
   pointer-events: none;
   filter: blur(8px);
 }
+
 .card-neon > * {
   position: relative;
   z-index: 1;
 }
+
 /* 极光 */
 .card-aurora {
   background: linear-gradient(135deg, #00c3ff 0%, #ffff1c 100%);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px 0 rgba(58, 141, 222, 0.18);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+  box-sizing: border-box;
+  position: relative;
 }
+
 /* 深空 */
 .card-space {
   background: linear-gradient(135deg, #232526 0%, #414345 100%);
   color: #fff;
 }
+
 /* 火焰 */
 .card-fire {
   background: linear-gradient(135deg, #ff512f 0%, #dd2476 100%);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px 0 rgba(58, 141, 222, 0.18);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+  box-sizing: border-box;
+  position: relative;
 }
+
 /* 冰蓝 */
 .card-ice {
   background: linear-gradient(135deg, #83a4d4 0%, #b6fbff 100%);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px 0 rgba(58, 141, 222, 0.18);
   color: #222;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+  box-sizing: border-box;
+  position: relative;
 }
+
 /* 绿野 */
 .card-forest {
   background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px 0 rgba(58, 141, 222, 0.18);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+  box-sizing: border-box;
+  position: relative;
 }
+
 /* 日落 */
 .card-sunset {
   background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
   color: #333;
 }
+
 /* 金属 */
 .card-metal {
   background: linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%);
   color: #222;
 }
+
 /* 玻璃 */
 .card-glass {
   background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
   backdrop-filter: blur(8px);
   color: #222;
 }
+
 /* 暗夜 */
 .card-night {
   background: linear-gradient(135deg, #434343 0%, #000000 100%);
 }
+
 /* 亮白 */
 .card-white {
   background: linear-gradient(135deg, #fff 0%, #e3e3e3 100%);
   color: #222;
 }
+
 /* 复古 */
 .card-retro {
   background: linear-gradient(135deg, #ffaf7b 0%, #d76d77 100%);
 }
+
 /* 科技 */
 .card-tech {
   background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
 }
+
 /* 梦幻 */
 .card-dream {
   background: linear-gradient(135deg, #fcb69f 0%, #ffecd2 100%);
   color: #222;
 }
+
 /* 未来 */
 .card-future {
   background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
