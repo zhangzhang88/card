@@ -1,0 +1,45 @@
+.property-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.property-title {
+  margin-top: 36px;
+  margin-bottom: 18px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.property-item {
+  font-size: 15px;
+  color: #eee;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.property-item input[type='checkbox'] {
+  accent-color: #7b2ff2;
+  width: 16px;
+  height: 16px;
+}
+
+.property-bgtype-group, .property-gradient-group, .property-opacity-group {
+  margin-bottom: 32px;
+}
+
+.property-bgtype-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.property-gradient-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+} 

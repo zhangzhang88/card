@@ -1,0 +1,329 @@
+.cyber-card {
+  background: linear-gradient(135deg, #3a8dde 0%, #7b2ff2 100%);
+  border-radius: 28px;
+  box-shadow: 0 12px 48px 0 rgba(58, 141, 222, 0.38), 0 2px 24px 0 rgba(123,47,242,0.18);
+  padding: 36px 32px 28px 32px;
+  width: 420px;
+  min-height: 480px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+  margin: 0 auto 0 200px;
+  box-sizing: border-box;
+}
+
+.cyber-date {
+  font-size: 18px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 22px;
+  letter-spacing: 1px;
+  outline: none;
+  user-select: text;
+}
+
+.cyber-content {
+  font-size: 22px;
+  line-height: 2.1;
+  color: #fff;
+  margin-bottom: 38px;
+  outline: none;
+  white-space: pre-line;
+  user-select: text;
+  min-height: 220px;
+}
+
+.cyber-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 17px;
+  color: rgba(255,255,255,0.7);
+  margin-top: 10px;
+}
+
+.cyber-author {
+  outline: none;
+  user-select: text;
+}
+
+.cyber-count {
+  color: rgba(255,255,255,0.5);
+}
+
+/* 其他模板样式可后续扩展 */
+.card-transparent {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+.card-golden {
+  background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+  color: #333;
+}
+.card-notebook {
+  background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+  color: #333;
+}
+.card-dark {
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+}
+.card-border {
+  background: linear-gradient(135deg, #fff 0%, #e3e3e3 100%);
+  color: #222;
+  border: 1.5px solid #bbb;
+}
+
+.card-editor-toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+  justify-content: center;
+  position: sticky;
+  top: 18px;
+  z-index: 10;
+  background: transparent;
+}
+
+.card-btn {
+  background: linear-gradient(90deg, #7b2ff2 0%, #f357a8 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(123,47,242,0.10);
+  transition: background 0.2s, box-shadow 0.2s;
+  margin-left: 0;
+}
+
+.card-btn:hover {
+  background: linear-gradient(90deg, #f357a8 0%, #7b2ff2 100%);
+  box-shadow: 0 4px 16px rgba(123,47,242,0.18);
+}
+
+.card-default {
+  background: linear-gradient(135deg, #3A8DDE 0%, #5B6DF6 60%, #7B2FF2 85%, #F357A8 100%);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px 0 rgba(58, 141, 222, 0.18);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.card-default .cyber-date {
+  font-size: 17px;
+  color: rgba(255,255,255,0.68);
+  margin-bottom: 22px;
+  letter-spacing: 0.5px;
+  outline: none;
+  user-select: text;
+  font-weight: 400;
+}
+
+.card-default .cyber-content {
+  font-size: 20px;
+  line-height: 2.1;
+  color: #fff;
+  margin-bottom: 38px;
+  outline: none;
+  white-space: pre-line;
+  user-select: text;
+  min-height: 220px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.card-default .cyber-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+  margin-top: 0;
+  width: 100%;
+}
+
+.card-default .cyber-author {
+  color: rgba(255,255,255,0.68);
+  outline: none;
+  user-select: text;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.card-default .cyber-count {
+  color: rgba(255,255,255,0.45);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 600px) {
+  .card-default {
+    width: 98vw;
+    min-width: unset;
+    padding: 18px 6vw 12px 6vw;
+  }
+  .card-default .cyber-content {
+    font-size: 17px;
+    min-height: 120px;
+  }
+}
+
+/* 彩虹 */
+.card-rainbow {
+  background: linear-gradient(90deg, #ff5e62 0%, #ff9966 25%, #f9d423 50%, #a8ff78 75%, #43cea2 100%);
+}
+/* 霓虹 */
+.card-neon {
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  position: relative;
+  overflow: visible;
+}
+.card-neon::before {
+  content: '';
+  position: absolute;
+  top: -24px;
+  left: -24px;
+  right: -24px;
+  bottom: -24px;
+  background: radial-gradient(circle, rgba(0,242,254,0.35) 0%, rgba(79,172,254,0.18) 60%, transparent 100%);
+  z-index: 0;
+  border-radius: 40px;
+  pointer-events: none;
+  filter: blur(8px);
+}
+.card-neon > * {
+  position: relative;
+  z-index: 1;
+}
+/* 极光 */
+.card-aurora {
+  background: linear-gradient(135deg, #00c3ff 0%, #ffff1c 100%);
+}
+/* 深空 */
+.card-space {
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  color: #fff;
+}
+/* 火焰 */
+.card-fire {
+  background: linear-gradient(135deg, #ff512f 0%, #dd2476 100%);
+}
+/* 冰蓝 */
+.card-ice {
+  background: linear-gradient(135deg, #83a4d4 0%, #b6fbff 100%);
+  color: #222;
+}
+/* 绿野 */
+.card-forest {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+/* 日落 */
+.card-sunset {
+  background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+  color: #333;
+}
+/* 金属 */
+.card-metal {
+  background: linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%);
+  color: #222;
+}
+/* 玻璃 */
+.card-glass {
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  backdrop-filter: blur(8px);
+  color: #222;
+}
+/* 暗夜 */
+.card-night {
+  background: linear-gradient(135deg, #434343 0%, #000000 100%);
+}
+/* 亮白 */
+.card-white {
+  background: linear-gradient(135deg, #fff 0%, #e3e3e3 100%);
+  color: #222;
+}
+/* 复古 */
+.card-retro {
+  background: linear-gradient(135deg, #ffaf7b 0%, #d76d77 100%);
+}
+/* 科技 */
+.card-tech {
+  background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+}
+/* 梦幻 */
+.card-dream {
+  background: linear-gradient(135deg, #fcb69f 0%, #ffecd2 100%);
+  color: #222;
+}
+/* 未来 */
+.card-future {
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+  color: #222;
+}
+
+.card-inner {
+  background: rgba(255,255,255,0.18);
+  border-radius: 24px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
+  padding: 24px 16px 16px 16px;
+  width: 100%;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+@media (max-width: 600px) {
+  .card-inner {
+    padding: 16px 4vw 12px 4vw;
+    min-height: 180px;
+  }
+}
+
+.card-size-toolbar {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 18px;
+  justify-content: flex-start;
+}
+
+.card-size-btn {
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 16px 18px 12px 18px;
+  font-size: 17px;
+  font-family: inherit;
+  font-weight: 400;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+  text-align: center;
+  line-height: 1.3;
+  min-width: 92px;
+  white-space: pre-line;
+}
+
+.card-size-btn.selected, .card-size-btn:active {
+  background: #444;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+
+.card-size-btn:hover {
+  background: #333;
+  color: #fff;
+} 
