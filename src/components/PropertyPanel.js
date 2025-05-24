@@ -1,7 +1,7 @@
 import React from 'react';
 import './PropertyPanel.css';
 
-export default function PropertyPanel({ showDate, setShowDate, showAuthor, setShowAuthor, showCount, setShowCount, customBgType, setCustomBgType, customBgColor, setCustomBgColor, customBgGradient, setCustomBgGradient, cardWidth, setCardWidth }) {
+export default function PropertyPanel({ showDate, setShowDate, showAuthor, setShowAuthor, showCount, setShowCount, customBgType, setCustomBgType, customBgColor, setCustomBgColor, customBgGradient, setCustomBgGradient, cardWidth, setCardWidth, contentBgOpacity, setContentBgOpacity }) {
   return (
     <div className="property-panel">
       <div className="property-title">显示/隐藏元素</div>
@@ -66,6 +66,28 @@ export default function PropertyPanel({ showDate, setShowDate, showAuthor, setSh
           onChange={e => setCardWidth(Number(e.target.value))}
           style={{ width: 60, marginLeft: 8, background: '#222', color: '#fff', border: '1px solid #444', borderRadius: 4, textAlign: 'center' }}
         /> px
+      </div>
+
+      <div className="property-title" style={{marginTop: 24}}>内容框背景</div>
+      <div className="property-opacity-group">
+        <input
+          type="range"
+          min={0}
+          max={100}
+          step={1}
+          value={contentBgOpacity}
+          onChange={e => setContentBgOpacity(Number(e.target.value))}
+          style={{ width: 160 }}
+        />
+        <input
+          type="number"
+          min={0}
+          max={100}
+          step={1}
+          value={contentBgOpacity}
+          onChange={e => setContentBgOpacity(Number(e.target.value))}
+          style={{ width: 60, marginLeft: 8, background: '#222', color: '#fff', border: '1px solid #444', borderRadius: 4, textAlign: 'center' }}
+        /> %
       </div>
     </div>
   );
