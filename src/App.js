@@ -42,12 +42,12 @@ function App() {
     to: '#F357A8',
     angle: 135
   });
-  const [contentBgOpacity, setContentBgOpacity] = useState(0);
+  const [contentBgOpacity, setContentBgOpacity] = useState(53);
   const [customTemplates, setCustomTemplates] = useState(() => {
     const saved = localStorage.getItem('customTemplates');
     return saved ? JSON.parse(saved) : [];
   });
-  const [cardWidth, setCardWidth] = useState(420);
+  const [cardWidth, setCardWidth] = useState(557);
 
   useEffect(() => {
     localStorage.setItem('customTemplates', JSON.stringify(customTemplates));
@@ -124,7 +124,8 @@ function App() {
       }
     } else {
       setCustomBgType('template');
-      setCardWidth(420);
+      setCardWidth(557);
+      setContentBgOpacity(53);
       if (key === 'classic') {
         setCustomBgType('gradient');
         setCustomBgGradient({ from: '#185491', to: '#a72f6d', angle: 128 });
