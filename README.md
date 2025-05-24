@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Card 卡片生成器
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+一个支持多种模板、可自定义背景、内容、宽度、内容框背景透明度的卡片生成器。支持导出图片、复制图片、保存自定义模板，适合用于社交分享、内容展示等场景。
 
-## Available Scripts
+## 主要功能
+- 多种系统模板可选（渐变、彩虹、霓虹等）
+- 支持自定义纯色/渐变背景
+- 支持自定义卡片宽度
+- 支持自定义内容框背景透明度
+- 支持显示/隐藏日期、作者、字数
+- 支持导出图片、复制图片
+- 支持保存自定义模板，自动记忆所有自定义参数
 
-In the project directory, you can run:
+## 快速开始
 
-### `npm start`
+### 1. 克隆项目
+```bash
+git clone https://github.com/zhangzhang88/card.git
+cd card
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. 安装依赖
+```bash
+npm install
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 3. 本地运行
+```bash
+npm start
+```
+浏览器访问 http://localhost:3000
 
-### `npm test`
+## 使用说明
+- 左侧选择模板或自定义背景
+- 右侧可调整卡片宽度、内容框背景透明度等参数
+- 编辑内容、日期、作者等信息
+- 点击"导出图片"或"复制图片"按钮即可获取卡片
+- 点击"保存为模板"可保存当前所有自定义参数，刷新后依然可用
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 如何部署到 Vercel
+1. 推送代码到 GitHub
+2. 登录 [Vercel](https://vercel.com/)，新建项目并绑定你的 GitHub 仓库
+3. 选择 `main` 分支，点击 Deploy
+4. 部署完成后即可访问你的线上卡片生成器
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 联系方式
+如有问题或建议，欢迎提 issue 或联系作者：
+- GitHub: [zhangzhang88](https://github.com/zhangzhang88)
