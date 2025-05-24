@@ -5,7 +5,7 @@ import CardEditor from './components/CardEditor';
 import PropertyPanel from './components/PropertyPanel';
 
 const systemTemplates = [
-  { key: 'default', name: '默认', color: 'linear-gradient(135deg, #7b2ff2 0%, #f357a8 100%)' },
+  { key: 'classic', name: '经典', color: 'linear-gradient(128deg, #185491 0%, #a72f6d 100%)', cardWidth: 557, contentBgOpacity: 53 },
   { key: 'rainbow', name: '彩虹', color: 'linear-gradient(90deg, #ff5e62 0%, #ff9966 25%, #f9d423 50%, #a8ff78 75%, #43cea2 100%)' },
   { key: 'neon', name: '霓虹', color: 'linear-gradient(135deg, #00f2fe 0%, #4facfe 100%)' },
   { key: 'aurora', name: '极光', color: 'linear-gradient(135deg, #00c3ff 0%, #ffff1c 100%)' },
@@ -14,8 +14,24 @@ const systemTemplates = [
   { key: 'forest', name: '绿野', color: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)' }
 ];
 
+const systemTemplateKeys = [
+  'classic', 'rainbow', 'neon', 'aurora', 'fire', 'ice', 'forest'
+];
+
+const allSystemTemplateKeys = systemTemplates.map(t => t.key);
+
 function App() {
-  const [selectedTemplate, setSelectedTemplate] = useState('default');
+  const [selectedTemplate, setSelectedTemplate] = useState(() => {
+    const systemTemplatesInit = [
+      { key: 'classic' }, { key: 'rainbow' }, { key: 'neon' }, { key: 'aurora' }, { key: 'fire' }, { key: 'ice' }, { key: 'forest' }
+    ];
+    const allSystemTemplateKeys = systemTemplatesInit.map(t => t.key);
+    const saved = localStorage.getItem('selectedTemplate');
+    if (saved && allSystemTemplateKeys.includes(saved)) {
+      return saved;
+    }
+    return 'classic';
+  });
   const [showDate, setShowDate] = useState(true);
   const [showAuthor, setShowAuthor] = useState(true);
   const [showCount, setShowCount] = useState(true);
@@ -37,10 +53,26 @@ function App() {
     localStorage.setItem('customTemplates', JSON.stringify(customTemplates));
   }, [customTemplates]);
 
+  useEffect(() => {
+    localStorage.setItem('selectedTemplate', selectedTemplate);
+  }, [selectedTemplate]);
+
+  useEffect(() => {
+    const allTemplateKeys = [
+      ...systemTemplates.map(t => t.key),
+      ...customTemplates.map(t => t.key)
+    ];
+    const saved = localStorage.getItem('selectedTemplate');
+    if (!allTemplateKeys.includes(saved)) {
+      localStorage.setItem('selectedTemplate', 'classic');
+      setSelectedTemplate('classic');
+    }
+  }, [customTemplates, systemTemplates]);
+
   const handleDeleteCustomTemplate = (key) => {
     setCustomTemplates(prev => prev.filter(t => t.key !== key));
     if (selectedTemplate === key) {
-      setSelectedTemplate('default');
+      setSelectedTemplate('classic');
     }
   };
 
@@ -93,6 +125,12 @@ function App() {
     } else {
       setCustomBgType('template');
       setCardWidth(420);
+      if (key === 'classic') {
+        setCustomBgType('gradient');
+        setCustomBgGradient({ from: '#185491', to: '#a72f6d', angle: 128 });
+        setCardWidth(557);
+        setContentBgOpacity(53);
+      }
     }
   };
 
