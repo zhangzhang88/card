@@ -26,6 +26,7 @@ function App() {
     to: '#F357A8',
     angle: 135
   });
+  const [contentBgOpacity, setContentBgOpacity] = useState(0);
   const [customTemplates, setCustomTemplates] = useState(() => {
     const saved = localStorage.getItem('customTemplates');
     return saved ? JSON.parse(saved) : [];
@@ -54,7 +55,15 @@ function App() {
       color = 'linear-gradient(135deg, #7b2ff2 0%, #f357a8 100%)';
     }
     const key = 'custom_' + Date.now();
-    setCustomTemplates(prev => [...prev, { key, name, color, bgType: customBgType, bgColor: customBgColor, bgGradient: customBgGradient }]);
+    setCustomTemplates(prev => [...prev, { 
+      key, 
+      name, 
+      color, 
+      bgType: customBgType, 
+      bgColor: customBgColor, 
+      bgGradient: customBgGradient,
+      cardWidth: cardWidth 
+    }]);
     setSelectedTemplate(key);
     setCustomBgType('template');
   };
@@ -74,8 +83,12 @@ function App() {
       } else {
         setCustomBgType('template');
       }
+      if (found.cardWidth) {
+        setCardWidth(found.cardWidth);
+      }
     } else {
       setCustomBgType('template');
+      setCardWidth(420);
     }
   };
 
@@ -96,6 +109,7 @@ function App() {
             customBgColor={customBgColor}
             customBgGradient={customBgGradient}
             cardWidth={cardWidth}
+            contentBgOpacity={contentBgOpacity}
             onSaveTemplate={handleSaveTemplate}
           />
         </div>
@@ -110,6 +124,7 @@ function App() {
           customBgColor={customBgColor} setCustomBgColor={setCustomBgColor}
           customBgGradient={customBgGradient} setCustomBgGradient={setCustomBgGradient}
           cardWidth={cardWidth} setCardWidth={setCardWidth}
+          contentBgOpacity={contentBgOpacity} setContentBgOpacity={setContentBgOpacity}
         />
       </aside>
     </div>
