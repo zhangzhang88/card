@@ -62,7 +62,8 @@ function App() {
       bgType: customBgType, 
       bgColor: customBgColor, 
       bgGradient: customBgGradient,
-      cardWidth: cardWidth 
+      cardWidth: cardWidth,
+      contentBgOpacity: contentBgOpacity
     }]);
     setSelectedTemplate(key);
     setCustomBgType('template');
@@ -85,6 +86,9 @@ function App() {
       }
       if (found.cardWidth) {
         setCardWidth(found.cardWidth);
+      }
+      if (found.contentBgOpacity !== undefined) {
+        setContentBgOpacity(found.contentBgOpacity);
       }
     } else {
       setCustomBgType('template');
