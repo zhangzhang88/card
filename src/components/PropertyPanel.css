@@ -1,45 +1,56 @@
 .property-panel {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding-top: 8px;
+  gap: 10px;
+  padding-top: 4px;
 }
 
 .property-title {
-  margin-top: 36px;
-  margin-bottom: 18px;
-  font-size: 20px;
-  font-weight: 700;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 600;
   color: #fff;
 }
 
 .property-item {
-  font-size: 15px;
+  font-size: 13px;
   color: #eee;
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 22px;
+  gap: 6px;
+  margin-bottom: 10px;
 }
 
-.property-item input[type='checkbox'] {
+.property-item input[type='checkbox'],
+.property-item input[type='radio'] {
   accent-color: #7b2ff2;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 
 .property-bgtype-group, .property-gradient-group, .property-opacity-group {
-  margin-bottom: 32px;
+  margin-bottom: 14px;
 }
 
 .property-bgtype-group {
   display: flex;
-  gap: 12px;
-  margin-top: 4px;
+  gap: 8px;
+  margin-top: 2px;
 }
 
 .property-gradient-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
+}
+
+.property-opacity-group input[type='range'] {
+  height: 2px;
+}
+
+.property-opacity-group input[type='number'] {
+  height: 22px;
+  font-size: 13px;
+  padding: 2px 4px;
 } 
