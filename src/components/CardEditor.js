@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import html2canvas from 'html2canvas';
 import './CardEditor.css';
+import AvatarUpload from './AvatarUpload';
 
 // 获取当天日期字符串
 function getTodayStr() {
@@ -8,7 +9,7 @@ function getTodayStr() {
   return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
 }
 
-export default function CardEditor({ template, showDate = true, showAuthor = true, showCount = true, customBgType, customBgColor, customBgGradient, cardWidth = 420, contentBgOpacity = 18, onSaveTemplate }) {
+export default function CardEditor({ template, showDate = true, showAuthor = true, showCount = true, showAvatar = true, customBgType, customBgColor, customBgGradient, cardWidth = 420, contentBgOpacity = 18, onSaveTemplate, avatar, onAvatarChange }) {
   const [date, setDate] = useState(getTodayStr());
   const [content, setContent] = useState('讲一个笑话：说社会上最危险的两群人相遇了，带着红领巾的小明同学，扶起了摔倒了老奶奶。老奶奶拉着小明说，是你把我撞倒的，要赔我钱。小明反手就掐住了老奶奶的脖子说，老太婆，我今年9岁了，如果我跟他们说，你想拐卖我，并且要伤害我，我在情急之下还了手，结果把你掐死了，你觉得我能判几年？');
   const [author, setAuthor] = useState('赛博牛马');
@@ -77,6 +78,12 @@ export default function CardEditor({ template, showDate = true, showAuthor = tru
           style={{ ...(customBgType !== 'template' ? customStyle : {}), width: cardWidth }}
         >
           <div className="card-inner" style={{ background: innerBg }}>
+            {showAvatar && (
+              <AvatarUpload 
+                avatar={avatar}
+                onAvatarChange={onAvatarChange}
+              />
+            )}
             {showDate && (
               <div className="cyber-date" contentEditable suppressContentEditableWarning onBlur={e => setDate(e.target.innerText)}>{date}</div>
             )}
