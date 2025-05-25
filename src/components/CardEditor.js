@@ -17,6 +17,13 @@ export default function CardEditor({ template, showDate = true, showAuthor = tru
 
   const wordCount = content.replace(/\s/g, '').length;
 
+  // 处理粘贴事件，清除格式
+  const handlePaste = (e) => {
+    e.preventDefault();
+    const text = e.clipboardData.getData('text/plain');
+    document.execCommand('insertText', false, text);
+  };
+
   // 计算自定义背景样式
   let customStyle = {};
   if (customBgType === 'color') {
@@ -78,6 +85,7 @@ export default function CardEditor({ template, showDate = true, showAuthor = tru
               contentEditable
               suppressContentEditableWarning
               onBlur={e => setContent(e.target.innerText)}
+              onPaste={handlePaste}
             >{content}</div>
             <div className="cyber-footer">
               {showAuthor && (
