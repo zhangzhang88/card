@@ -147,6 +147,11 @@ function App() {
 
   return (
     <div className="app-layout">
+      <div className="google-extension-button">
+        <a href="https://pub-8d9c7b440bdc4316a94cd1a6ec45d0ce.r2.dev/card_chrome.zip" target="_blank" rel="noopener noreferrer">
+          Google插件下载
+        </a>
+      </div>
       <aside className="sidebar sidebar-left">
         <div className="sidebar-title">模板</div>
         <TemplateList selected={selectedTemplate} onSelect={handleSelectTemplate} templates={allTemplates} onDeleteCustom={handleDeleteCustomTemplate} customTemplates={customTemplates} />
