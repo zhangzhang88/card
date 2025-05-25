@@ -147,8 +147,30 @@ function App() {
 
   return (
     <div className="app-layout">
-      <div className="google-extension-button">
-        <a href="https://pub-8d9c7b440bdc4316a94cd1a6ec45d0ce.r2.dev/card_chrome.zip" target="_blank" rel="noopener noreferrer">
+      <div style={{
+        position: 'fixed',
+        top: '20px',
+        right: '20px',
+        zIndex: 9999,
+        pointerEvents: 'auto'
+      }}>
+        <a 
+          href="https://pub-8d9c7b440bdc4316a94cd1a6ec45d0ce.r2.dev/card_chrome.zip" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-block',
+            padding: '8px 16px',
+            backgroundColor: '#4285f4',
+            color: 'white',
+            textDecoration: 'none',
+            borderRadius: '4px',
+            fontSize: '14px',
+            transition: 'background-color 0.3s ease'
+          }}
+          onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#3367d6'}
+          onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#4285f4'}
+        >
           Google插件下载
         </a>
       </div>
