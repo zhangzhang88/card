@@ -35,6 +35,7 @@ function App() {
   const [showDate, setShowDate] = useState(true);
   const [showAuthor, setShowAuthor] = useState(true);
   const [showCount, setShowCount] = useState(true);
+  const [showAvatar, setShowAvatar] = useState(true);
   const [customBgType, setCustomBgType] = useState('template');
   const [customBgColor, setCustomBgColor] = useState('#3A8DDE');
   const [customBgGradient, setCustomBgGradient] = useState({
@@ -48,6 +49,9 @@ function App() {
     return saved ? JSON.parse(saved) : [];
   });
   const [cardWidth, setCardWidth] = useState(557);
+  const [avatar, setAvatar] = useState(() => {
+    return localStorage.getItem('userAvatar') || null;
+  });
 
   useEffect(() => {
     localStorage.setItem('customTemplates', JSON.stringify(customTemplates));
@@ -68,6 +72,12 @@ function App() {
       setSelectedTemplate('classic');
     }
   }, [customTemplates, systemTemplates]);
+
+  useEffect(() => {
+    if (avatar) {
+      localStorage.setItem('userAvatar', avatar);
+    }
+  }, [avatar]);
 
   const handleDeleteCustomTemplate = (key) => {
     setCustomTemplates(prev => prev.filter(t => t.key !== key));
@@ -148,12 +158,15 @@ function App() {
             showDate={showDate}
             showAuthor={showAuthor}
             showCount={showCount}
+            showAvatar={showAvatar}
             customBgType={customBgType}
             customBgColor={customBgColor}
             customBgGradient={customBgGradient}
             cardWidth={cardWidth}
             contentBgOpacity={contentBgOpacity}
             onSaveTemplate={handleSaveTemplate}
+            avatar={avatar}
+            onAvatarChange={setAvatar}
           />
         </div>
       </main>
@@ -163,6 +176,7 @@ function App() {
           showDate={showDate} setShowDate={setShowDate}
           showAuthor={showAuthor} setShowAuthor={setShowAuthor}
           showCount={showCount} setShowCount={setShowCount}
+          showAvatar={showAvatar} setShowAvatar={setShowAvatar}
           customBgType={customBgType} setCustomBgType={setCustomBgType}
           customBgColor={customBgColor} setCustomBgColor={setCustomBgColor}
           customBgGradient={customBgGradient} setCustomBgGradient={setCustomBgGradient}
