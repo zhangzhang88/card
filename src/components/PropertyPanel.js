@@ -1,7 +1,7 @@
 import React from 'react';
 import './PropertyPanel.css';
 
-export default function PropertyPanel({ showDate, setShowDate, showAuthor, setShowAuthor, showCount, setShowCount, customBgType, setCustomBgType, customBgColor, setCustomBgColor, customBgGradient, setCustomBgGradient, cardWidth, setCardWidth, contentBgOpacity, setContentBgOpacity }) {
+export default function PropertyPanel({ showDate, setShowDate, showAuthor, setShowAuthor, showCount, setShowCount, showAvatar, setShowAvatar, customBgType, setCustomBgType, customBgColor, setCustomBgColor, customBgGradient, setCustomBgGradient, cardWidth, setCardWidth, contentBgOpacity, setContentBgOpacity }) {
   return (
     <div className="property-panel">
       <div className="property-title">显示/隐藏元素</div>
@@ -13,6 +13,9 @@ export default function PropertyPanel({ showDate, setShowDate, showAuthor, setSh
       </label>
       <label className="property-item">
         <input type="checkbox" checked={showCount} onChange={e => setShowCount(e.target.checked)} /> 字数
+      </label>
+      <label className="property-item">
+        <input type="checkbox" checked={showAvatar} onChange={e => setShowAvatar(e.target.checked)} /> 头像
       </label>
 
       <div className="property-title" style={{marginTop: 24}}>自定义背景</div>
