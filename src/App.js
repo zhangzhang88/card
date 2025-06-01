@@ -83,9 +83,8 @@ function App() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const tweetText = params.get('tweetText');
-    const tweetUrl = params.get('tweetUrl');
     if (tweetText) {
-      setInitialContent(tweetText + (tweetUrl ? '\n\n' + tweetUrl : ''));
+      setInitialContent(tweetText);
     }
   }, []);
 
