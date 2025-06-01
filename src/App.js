@@ -52,6 +52,7 @@ function App() {
   const [avatar, setAvatar] = useState(() => {
     return localStorage.getItem('userAvatar') || null;
   });
+  const [initialContent, setInitialContent] = useState('');
 
   useEffect(() => {
     localStorage.setItem('customTemplates', JSON.stringify(customTemplates));
@@ -78,6 +79,15 @@ function App() {
       localStorage.setItem('userAvatar', avatar);
     }
   }, [avatar]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const tweetText = params.get('tweetText');
+    const tweetUrl = params.get('tweetUrl');
+    if (tweetText) {
+      setInitialContent(tweetText + (tweetUrl ? '\n\n' + tweetUrl : ''));
+    }
+  }, []);
 
   const handleDeleteCustomTemplate = (key) => {
     setCustomTemplates(prev => prev.filter(t => t.key !== key));
@@ -194,6 +204,7 @@ function App() {
             onSaveTemplate={handleSaveTemplate}
             avatar={avatar}
             onAvatarChange={setAvatar}
+            initialContent={initialContent}
           />
         </div>
       </main>
