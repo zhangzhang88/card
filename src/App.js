@@ -164,7 +164,7 @@ function App() {
         pointerEvents: 'auto'
       }}>
         <a 
-          href="https://short.ztr8.uk/chrome" 
+          href="https://pub-8d9c7b440bdc4316a94cd1a6ec45d0ce.r2.dev/mini_card_chrome.zip" 
           target="_blank" 
           rel="noopener noreferrer"
           style={{
