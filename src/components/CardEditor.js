@@ -9,13 +9,20 @@ function getTodayStr() {
   return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
 }
 
-export default function CardEditor({ template, showDate = true, showAuthor = true, showCount = true, showAvatar = true, customBgType, customBgColor, customBgGradient, cardWidth = 420, contentBgOpacity = 18, onSaveTemplate, avatar, onAvatarChange }) {
+export default function CardEditor({ template, showDate = true, showAuthor = true, showCount = true, showAvatar = true, customBgType, customBgColor, customBgGradient, cardWidth = 420, contentBgOpacity = 18, onSaveTemplate, avatar, onAvatarChange, initialContent }) {
   const [date, setDate] = useState(getTodayStr());
-  const [content, setContent] = useState('讲一个笑话：说社会上最危险的两群人相遇了，带着红领巾的小明同学，扶起了摔倒了老奶奶。老奶奶拉着小明说，是你把我撞倒的，要赔我钱。小明反手就掐住了老奶奶的脖子说，老太婆，我今年9岁了，如果我跟他们说，你想拐卖我，并且要伤害我，我在情急之下还了手，结果把你掐死了，你觉得我能判几年？');
+  const [content, setContent] = useState(initialContent || '讲一个笑话：说社会上最危险的两群人相遇了，带着红领巾的小明同学，扶起了摔倒了老奶奶。老奶奶拉着小明说，是你把我撞倒的，要赔我钱。小明反手就掐住了老奶奶的脖子说，老太婆，我今年9岁了，如果我跟他们说，你想拐卖我，并且要伤害我，我在情急之下还了手，结果把你掐死了，你觉得我能判几年？');
   const [author, setAuthor] = useState('赛博牛马');
   const cardRef = useRef(null);
   const wrapperRef = useRef(null);
   const contentRef = useRef(null);
+
+  // 监听 initialContent 变化，自动同步到 content
+  React.useEffect(() => {
+    if (typeof initialContent === 'string' && initialContent !== '' && initialContent !== content) {
+      setContent(initialContent);
+    }
+  }, [initialContent]);
 
   // 计算事迹字数（只计算中文字符）
   const wordCount = (content.match(/[\u4e00-\u9fa5]/g) || []).length;
