@@ -15,14 +15,35 @@ export default function CardEditor({ template, showDate = true, showAuthor = tru
   const [author, setAuthor] = useState('赛博牛马');
   const cardRef = useRef(null);
   const wrapperRef = useRef(null);
+  const contentRef = useRef(null);
 
-  const wordCount = content.replace(/\s/g, '').length;
+  // 计算事迹字数（只计算中文字符）
+  const wordCount = (content.match(/[\u4e00-\u9fa5]/g) || []).length;
 
   // 处理粘贴事件，清除格式
   const handlePaste = (e) => {
     e.preventDefault();
     const text = e.clipboardData.getData('text/plain');
     document.execCommand('insertText', false, text);
+  };
+
+  // 处理内容更新，保持光标位置
+  const handleContentChange = (e) => {
+    const selection = window.getSelection();
+    const range = selection.getRangeAt(0);
+    const start = range.startOffset;
+    setContent(e.target.innerText);
+    // 在下一个事件循环中恢复光标位置
+    setTimeout(() => {
+      if (contentRef.current) {
+        const newRange = document.createRange();
+        const newSelection = window.getSelection();
+        newRange.setStart(contentRef.current.firstChild || contentRef.current, Math.min(start, e.target.innerText.length));
+        newRange.collapse(true);
+        newSelection.removeAllRanges();
+        newSelection.addRange(newRange);
+      }
+    }, 0);
   };
 
   // 计算自定义背景样式
@@ -88,15 +109,16 @@ export default function CardEditor({ template, showDate = true, showAuthor = tru
               <div className="cyber-date" contentEditable suppressContentEditableWarning onBlur={e => setDate(e.target.innerText)}>{date}</div>
             )}
             <div
+              ref={contentRef}
               className="cyber-content"
               contentEditable
               suppressContentEditableWarning
-              onBlur={e => setContent(e.target.innerText)}
+              onInput={handleContentChange}
               onPaste={handlePaste}
             >{content}</div>
             <div className="cyber-footer">
               {showAuthor && (
-                <span className="cyber-author" contentEditable suppressContentEditableWarning onBlur={e => setAuthor(e.target.innerText)}>{author}</span>
+                <span className="cyber-author" contentEditable suppressContentEditableWarning onInput={e => setAuthor(e.target.innerText)}>{author}</span>
               )}
               {showCount && (
                 <span className="cyber-count">字数: {wordCount}</span>
