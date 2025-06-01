@@ -4,7 +4,6 @@
   box-shadow: 0 12px 48px 0 rgba(58, 141, 222, 0.38), 0 2px 24px 0 rgba(123,47,242,0.18);
   padding: 36px 32px 28px 32px;
   width: 420px;
-  min-height: 480px;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -32,7 +31,6 @@
   outline: none;
   white-space: pre-line;
   user-select: text;
-  min-height: 220px;
   font-weight: 600;
 }
 
@@ -346,7 +344,6 @@
   box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
   padding: 24px 16px 16px 16px;
   width: 100%;
-  min-height: 220px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -358,7 +355,6 @@
 @media (max-width: 600px) {
   .card-inner {
     padding: 16px 4vw 12px 4vw;
-    min-height: 180px;
   }
 }
 
